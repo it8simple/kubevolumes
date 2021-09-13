@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ubuntu-vol-sleep-nfs-dp
+  labels:
+    app: ubuntu-vol-sleep-nfs
+spec:
+  template:
+    metadata:
+      name: ubuntu-vol-sleep-nfs-pod
+      labels:
+        app: ubuntu-vol-sleep-nfs
+    spec:
+      containers:
+      - name: ubs-container
+        image: it8simple/ubuntu-vol-sleep:1.0
+        volumeMounts:
+        - mountPath: /data
+          name: data-volume
+      volumes:
+      - name: data-volume
+        nfs:
+          server: nfs.it8simple.com
+          path: /shares/data
+  replicas: 6
+  selector:
+    matchLabels:
+      app: ubuntu-vol-sleep-nfs

@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ubuntu-vol-sleep-host-dp
+  labels:
+    app: ubuntu-vol-sleep-host
+spec:
+  template:
+    metadata:
+      name: ubuntu-vol-sleep-host-pod
+      labels:
+        app: ubuntu-vol-sleep-host
+    spec:
+      containers:
+      - name: ubs-container
+        image: it8simple/ubuntu-vol-sleep:1.0
+        volumeMounts:
+        - mountPath: /data
+          name: data-volume
+      volumes:
+      - name: data-volume
+        hostPath:
+          path: /mnt/volumes/data
+          type: Directory
+  replicas: 6
+  selector:
+    matchLabels:
+      app: ubuntu-vol-sleep-host
