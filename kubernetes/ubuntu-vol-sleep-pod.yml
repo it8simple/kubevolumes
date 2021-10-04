@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ubuntu-vol-sleep-pod
+spec:
+  containers:
+  - name: ubs-container
+    image: it8simple/ubuntu-vol-sleep:1.0
+    volumeMounts:
+      - mountPath: /data
+        name: data-volume
+  volumes:
+  - name: data-volume
+    persistentVolumeClaim:
+      claimName: ubuntu-vol-sleep-pvc

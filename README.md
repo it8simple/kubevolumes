@@ -1,6 +1,6 @@
 # Kubernetes Basics (Volumes)
 
-This repository contains the files used in the It Just Made Simple blog [post](https://www.itjustmadesimple.com/2021/09/13/kubernetes-basics-part-8-volumes-1/) about Kubernetes Services.
+This repository contains the files used in the It Just Made Simple blog posts about volumes in Kubernetes. Part 1 can be found [here](https://www.itjustmadesimple.com/2021/09/13/kubernetes-basics-part-8-volumes-1/) and part 2 [here](https://www.itjustmadesimple.com/2021/10/04/kubernetes-basics-part-8-volumes-2/).
 
 ## Usage
 
